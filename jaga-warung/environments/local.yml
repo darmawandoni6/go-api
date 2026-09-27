@@ -1,0 +1,6 @@
+name: local
+variables:
+  - name: baseUrl
+    value: http://localhost:8000/api-v1
+  - name: token
+    value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMmJjNjVjNTQtZjQwMi00YjA3LTgzMGYtMGE3M2M1M2U3MDlmIiwiZW1haWwiOiJkb25pQHRlc3QuY29tIiwiZXhwIjoxNzkwNTI1NTc5LCJpYXQiOjE3OTA1MjQ2Nzl9.-0knafi9O92rG57ATFEJ_7FP22bf1BflNi-t9POckMg

@@ -1,0 +1,36 @@
+info:
+  name: login
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{baseUrl}}/auth/login"
+  body:
+    type: json
+    data: |-
+      {
+        "email": "doni@test.com",
+        "password": "pass123"
+      }
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        // Ambil data dari response body
+        const responseBody = res.getBody();
+
+        // Simpan access_token ke environment variable "token"
+        // Gunakan { persist: true } agar nilai tersimpan ke file local.bru
+        if (responseBody && responseBody.data && responseBody.data.access_token) {
+            bru.setEnvVar("token", responseBody.data.access_token, { persist: true });
+            console.log("Token berhasil disimpan ke Local Environment!");
+        }
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
